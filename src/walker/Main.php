@@ -25,8 +25,8 @@ class Main extends BaseCommand implements Listener {
 	public function __construct($owner,$bl) {
 		parent::__construct($owner);
 		$this->enableCmd("magiccarpet",
-							  ["description" => mc::_("Fly with a magic carpet"),
-								"usage" => mc::_("/magiccarpet"),
+							  ["description" => "Fly with a magic carpet",
+								"usage" => "/magiccarpet",
 								"aliases" => ["mc"],
 								"permission" => "toybox.magiccarpet"]);
 		$this->owner->getServer()->getPluginManager()->registerEvents($this,$this->owner);
@@ -54,11 +54,11 @@ class Main extends BaseCommand implements Listener {
 		if ($state) {
 			$this->deSpawn($sender,$state[1]);
 			$this->unsetState($sender);
-			$sender->sendMessage(mc::_("The magic carpet disappears"));
+			$sender->sendMessage("The magic carpet disappears");
 		} else {
 			$state = $this->setState($sender,[ $size, []]);
 			$this->carpet($sender);
-			$sender->sendMessage(mc::_("A magic carpet of size %1%\nappears below your feet.",$size));
+			$sender->sendMessage("A magic carpet of size $size\nappears below your feet.");
 		}
 		return true;
 	}
@@ -154,7 +154,7 @@ class Main extends BaseCommand implements Listener {
 		if ($state) {
 			$this->deSpawn($pl,$state[1]);
 			$this->unsetState($pl);
-			$pl->sendMessage(mc::_("Magic carpet lost due to teleport!"));
+			$pl->sendMessage("Magic carpet lost due to teleport!");
 		}
 
 	}
